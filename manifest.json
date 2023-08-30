@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "author": "Studious Student",
-    "name": "CS395 - New Tab",
+    "author": "Justin Vaughn",
+    "name": "New Tab Edit",
     "version": "0.1",
     "description": "This extension overrides the default new tab.",
     "icons": {
