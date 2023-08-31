@@ -44,3 +44,23 @@ table {
 }
 
 /* End of default styles */
+
+/* <-------- Begin Main Container --------> */
+
+body {
+    background-image: url();
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-rows: minmax(33vh, auto);
+    gap: 1em;
+    justify-items: center;
+    align-items: center;
+}
+
+.box {
+    border: red solid 1px;
+    padding: 1em;
+}
