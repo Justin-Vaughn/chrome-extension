@@ -9,20 +9,23 @@
             media="screen"
             href="css/newtab.css"
         />
-        <script src="js/newtab.js"></script>
         <title>Page Title</title>
     </head>
     <body>
         <div class="container">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <main>
+                <div id="clock">
+                    <p id="clock-text"></p>
+                </div>
+                <div id="greeting">
+                    <p id="greeting-text"></p>
+                </div>
+            </main>
+
+            <!-- toggleable in the menu -->
+            <div id="quote"></div>
+            <div id="timer"></div>
         </div>
+        <script src="js/newtab.js"></script>
     </body>
 </html>
