@@ -107,7 +107,9 @@ body {
 
 #greeting p {
 	text-align: center;
-	margin-top: -4em;
+	margin-top: -2em;
+	font-family: 'Neucha', cursive;
+	font-size: 1.5em;
 }
 
 
