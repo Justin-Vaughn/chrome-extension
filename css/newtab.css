@@ -51,16 +51,49 @@ body {
     background-image: url();
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-auto-rows: minmax(33vh, auto);
-    gap: 1em;
-    justify-items: center;
-    align-items: center;
+.parent {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 }
 
-.box {
-    border: red solid 1px;
-    padding: 1em;
+/* <-------- CLOCK & GREETING --------> */
+.div1 {
+	grid-area: 2 / 2 / 3 / 3;
+	border: 1px red solid;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+}
+
+
+#clock p {
+	text-align: center;
+}
+
+#greeting p {
+	text-align: center;
+}
+
+
+
+/* <-------- QUOTE SECTION --------> */
+.div2 {
+	grid-area: 3 / 2 / 4 / 3;
+	border: 1px red solid;
+}
+
+/* <-------- MENU BUTTONS --------> */
+.div3 {
+	grid-area: 3 / 3 / 4 / 4;
+	border: 1px red solid;
+}
+
+/* <-------- TIMER --------> */
+.div4 {
+	grid-area: 1 / 3 / 2 / 4;
+	border: 1px red solid;
 }
