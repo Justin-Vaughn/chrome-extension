@@ -54,7 +54,7 @@ body {
 .parent {
 	height: 100vh;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: 1fr 2fr 1fr;
 	grid-template-rows: repeat(3, 1fr);
 }
 
@@ -64,18 +64,50 @@ body {
 	border: 1px red solid;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: repeat(2, 1fr);
+	grid-template-rows: 1fr 1fr 1fr;
 	grid-column-gap: 0px;
-	grid-row-gap: 0px;
+	grid-row-gap: 0em;
 }
 
+#clock {
+	height: fit-content;
+}
 
 #clock p {
 	text-align: center;
+	border: 1px red solid;
+	height: 50%;
+	font-family: 'ADLaM Display', cursive;
+	font-size: 6em;
+}
+
+#clock-text-seconds {
+	margin: -25%;
+	visibility: hidden;
+}
+
+#clock:hover #clock-text {
+	display: none;
+}
+
+#clock:hover #clock-text-seconds {
+	visibility: visible;
+	margin: 0;
+}
+
+#date {
+	height: fit-content;
+}
+
+#date p {
+	font-family: 'ADLaM Display', cursive;
+	text-align: center;
+	font-size: 1.75em;
 }
 
 #greeting p {
 	text-align: center;
+	margin-top: -4em;
 }
 
 
