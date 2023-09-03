@@ -105,14 +105,17 @@ body {
 	font-size: 1.75em;
 }
 
-#greeting p {
+#greeting {
 	text-align: center;
-	margin-top: -2em;
-	font-family: 'Neucha', cursive;
-	font-size: 1.5em;
+	margin-top: -3em;
 }
 
-
+#greeting p {
+	text-align: center;
+	font-family: 'Neucha', cursive;
+	font-size: 1.5em;
+	display: inline;
+}
 
 /* <-------- QUOTE SECTION --------> */
 .div2 {

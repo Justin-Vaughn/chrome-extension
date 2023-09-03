@@ -45,13 +45,48 @@ setInterval(function () {
 // <------------ GREETING ------------>
 
 // retrieves the messages stored in chrome, if there is none, default is '(name)'
+let nameOfUser = "";
 
-// if storage is empty
-let message = "Hello, (name)";
+// if the storage is not empty
+var message = "(name)";
 
-// if storage is not emplty
+chrome.storage.local.get("greeting").then((result) => {
+    nameOfUser = result.greeting;
+    console.log("Greeting value is " + result.greeting);
 
-// displays the message
-document.getElementById("greeting-text").innerHTML = message;
+    if (nameOfUser != undefined) {
+        // if storage is not emplty
+        message = nameOfUser;
+    }
+
+    // displays the message
+    document.getElementById("greeting-text-editable").innerHTML = message;
+});
 
 // user is able to edit the message
+// taken from https://stackoverflow.com/questions/48977986/editing-form-by-double-clicking-element
+
+document.querySelectorAll("#greeting-text-editable").forEach(function (node) {
+    node.ondblclick = function () {
+        let val = this.innerHTML;
+        let input = document.createElement("input");
+        input.value = val;
+
+        input.onblur = function () {
+            let val = this.value;
+
+            // sets the value in chome's storage
+            chrome.storage.local.set({ greeting: this.value }).then(() => {
+                console.log(
+                    "Greeting value added to chrome's storage: " + this.value
+                );
+            });
+
+            this.parentNode.innerHTML = val;
+        };
+
+        this.innerHTML = "";
+        this.appendChild(input);
+        input.focus();
+    };
+});
