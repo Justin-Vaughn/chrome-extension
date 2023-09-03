@@ -4,20 +4,21 @@
 const time = (showSeconds = false) => {
     const date = new Date();
     const time = date.toLocaleTimeString([], {
-        hour12: false,
         hour: "2-digit",
         minute: "2-digit",
     });
     const timeSeconds = date.toLocaleTimeString([], {
-        hour12: false,
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
     });
-    return showSeconds ? timeSeconds : time;
+
+    // removes AM & PM from the time
+    return showSeconds
+        ? timeSeconds.replace(/\s*AM\s*|\s*PM\s*/g, "")
+        : time.replace(/\s*AM\s*|\s*PM\s*/g, "");
 };
 
-// FUTURE add date under the time
 // Etc: Monday, June 5th
 const date = () => {
     const date = new Date();
