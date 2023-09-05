@@ -92,11 +92,7 @@ document.querySelectorAll("#greeting-text-editable").forEach(function (node) {
 
 // <------------ QUOTE ------------>
 
-// const response = await fetch("https://api.quotable.io/random");
-// const contents = await response.text();
-
-// console.log(contents);
-
+// awaits for url response and puts the quote on the page
 async function getQuote() {
     const response = await fetch("https://api.quotable.io/random");
     const quote = await response.json();
@@ -107,3 +103,8 @@ async function getQuote() {
 }
 
 getQuote();
+
+// <------------ MENU BUTTON ------------>
+
+
+
