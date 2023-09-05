@@ -138,7 +138,7 @@ menu_buttons.onclick = () => {
 }; 
 
 
-
+// TODO add the option to chrome storage
 quote_button.onclick = () => {
     // selects the quote and finds if it is hidden
     let quote = document.getElementById("quote-text");
@@ -147,9 +147,11 @@ quote_button.onclick = () => {
     if (!quoteIsShown) {
         // shows the quote if it is hidden
         quote.style.visibility = "visible";
+        quote_button.style.border = "#333333 solid 0.1em";
     } else {
         // hides the quote if it is shown
         quote.style.visibility = "hidden";
+        quote_button.style.border = "transparent solid 0.1em";
     }
-
 }
+
