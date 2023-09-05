@@ -105,6 +105,51 @@ async function getQuote() {
 getQuote();
 
 // <------------ MENU BUTTON ------------>
+const menu_buttons = document.getElementById("menu");
+const quote_button = document.getElementById("quote-button");
+const timer_button = document.getElementById("timer-button");
+const menu_plus_sign = document.getElementById("add-button");
+
+// opens and closed the menu
+menu_buttons.onclick = () => {
+    let quote_visibility = quote_button.style.visibility;
+    let timer_visibility = timer_button.style.visibility;
+    
+    // logic to check if the menu is open or closed
+    const menuIsOpen = quote_visibility == "visible" && timer_visibility == "visible";
+
+    if (!menuIsOpen) {
+        // spin the '+' sign to 'x'
+        menu_plus_sign.style.transition = "1s";
+        menu_plus_sign.style.transform = "rotateZ(135deg)";
+
+        // shows the menu if it is hidden
+        quote_button.style.visibility = "visible";
+        timer_button.style.visibility = "visible";
+    } else {
+        // spin the 'x' sign to '+'
+        menu_plus_sign.style.transition = "1s";
+        menu_plus_sign.style.transform = "rotateZ(0deg)";
+
+        // hides the menu if it is shown
+        quote_button.style.visibility = "hidden";
+        timer_button.style.visibility = "hidden";
+    }
+}; 
 
 
 
+quote_button.onclick = () => {
+    // selects the quote and finds if it is hidden
+    let quote = document.getElementById("quote-text");
+    const quoteIsShown = quote.style.visibility == "visible";
+
+    if (!quoteIsShown) {
+        // shows the quote if it is hidden
+        quote.style.visibility = "visible";
+    } else {
+        // hides the quote if it is shown
+        quote.style.visibility = "hidden";
+    }
+
+}
