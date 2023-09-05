@@ -71,7 +71,6 @@ document.querySelectorAll("#greeting-text-editable").forEach(function (node) {
         let val = this.innerHTML;
         let input = document.createElement("input");
         input.value = val;
-
         input.onblur = function () {
             let val = this.value;
 
@@ -90,3 +89,21 @@ document.querySelectorAll("#greeting-text-editable").forEach(function (node) {
         input.focus();
     };
 });
+
+// <------------ QUOTE ------------>
+
+// const response = await fetch("https://api.quotable.io/random");
+// const contents = await response.text();
+
+// console.log(contents);
+
+async function getQuote() {
+    const response = await fetch("https://api.quotable.io/random");
+    const quote = await response.json();
+
+    console.log("Quote: " + quote["content"]);
+
+    document.getElementById("quote-text").innerHTML = quote["content"];
+}
+
+getQuote();

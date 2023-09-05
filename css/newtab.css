@@ -121,6 +121,16 @@ body {
 .div2 {
 	grid-area: 3 / 2 / 4 / 3;
 	border: 1px red solid;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+#quote-text {
+	margin-bottom: 2em;
+	text-align: center;
+	max-width: 30em;
+	font-family: 'ADLaM Display', cursive;;
 }
 
 /* <-------- MENU BUTTONS --------> */
