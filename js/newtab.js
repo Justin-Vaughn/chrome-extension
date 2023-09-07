@@ -155,6 +155,34 @@ quote_button.onclick = () => {
     }
 };
 
+// TODO add the option to chrome storage
+timer_button.onclick = () => {
+    // selects the timer and finds if it is hidden
+    let timer = document.getElementById("timer");
+    let start_pause_button = document.getElementById("play_button");
+    let restart_button = document.getElementById("replay_button");
+
+    const timerIsShown = timer.style.visibility == "visible";
+
+    console.log("Clicked timer!");
+
+    if (!timerIsShown) {
+        // shows the timer if it is hidden
+        timer.style.visibility = "visible";
+        start_pause_button.style.visibility = "visible";
+        restart_button.style.visibility = "visible";
+
+        timer_button.style.border = "#333333 solid 0.1em";
+    } else {
+        // hides the timer if it is shown
+        timer.style.visibility = "hidden";
+        start_pause_button.style.visibility = "hidden";
+        restart_button.style.visibility = "hidden";
+
+        timer_button.style.border = "transparent solid 0.1em";
+    }
+};
+
 // <------------ TIMER ------------>
 // Inspired by https://stackoverflow.com/questions/56225643/how-to-make-a-pause-play-button-for-timer-on-javascript
 
