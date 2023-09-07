@@ -1,3 +1,7 @@
+// FUTURE
+// - Replace greeting with Good Morning, Good Afternoon, Good Evening
+// - Add google search function from project 1
+
 // <------------ CLOCK ------------>
 
 // returns a formated time for the clock
@@ -64,7 +68,7 @@ chrome.storage.local.get("greeting").then((result) => {
 });
 
 // user is able to edit the message
-// taken from https://stackoverflow.com/questions/48977986/editing-form-by-double-clicking-element
+// inspired by https://stackoverflow.com/questions/48977986/editing-form-by-double-clicking-element
 
 document.querySelectorAll("#greeting-text-editable").forEach(function (node) {
     node.ondblclick = function () {
@@ -138,7 +142,7 @@ menu_buttons.onclick = () => {
     }
 };
 
-// TODO add the option to chrome storage
+// FUTURE add the option to chrome storage
 quote_button.onclick = () => {
     // selects the quote and finds if it is hidden
     let quote = document.getElementById("quote-text");
@@ -155,7 +159,7 @@ quote_button.onclick = () => {
     }
 };
 
-// TODO add the option to chrome storage
+// FUTURE add the option to chrome storage
 timer_button.onclick = () => {
     // selects the timer and finds if it is hidden
     let timer = document.getElementById("timer");
@@ -163,8 +167,6 @@ timer_button.onclick = () => {
     let restart_button = document.getElementById("replay_button");
 
     const timerIsShown = timer.style.visibility == "visible";
-
-    console.log("Clicked timer!");
 
     if (!timerIsShown) {
         // shows the timer if it is hidden
