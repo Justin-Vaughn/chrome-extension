@@ -114,9 +114,10 @@ const menu_plus_sign = document.getElementById("add-button");
 menu_buttons.onclick = () => {
     let quote_visibility = quote_button.style.visibility;
     let timer_visibility = timer_button.style.visibility;
-    
+
     // logic to check if the menu is open or closed
-    const menuIsOpen = quote_visibility == "visible" && timer_visibility == "visible";
+    const menuIsOpen =
+        quote_visibility == "visible" && timer_visibility == "visible";
 
     if (!menuIsOpen) {
         // spin the '+' sign to 'x'
@@ -135,8 +136,7 @@ menu_buttons.onclick = () => {
         quote_button.style.visibility = "hidden";
         timer_button.style.visibility = "hidden";
     }
-}; 
-
+};
 
 // TODO add the option to chrome storage
 quote_button.onclick = () => {
@@ -153,5 +153,96 @@ quote_button.onclick = () => {
         quote.style.visibility = "hidden";
         quote_button.style.border = "transparent solid 0.1em";
     }
-}
+};
 
+// <------------ TIMER ------------>
+// Inspired by https://stackoverflow.com/questions/56225643/how-to-make-a-pause-play-button-for-timer-on-javascript
+
+const start_pause_timer_button = document.getElementById("play_button");
+const restart_timer_button = document.getElementById("replay_button");
+const timer_display = document.getElementById("timer-text");
+
+// keeps track of the number of seconds remaining, starts with 25 minutes
+let totalMinutes = 25;
+let totalSeconds = totalMinutes * 60;
+let timer; // holds the interval for the timer
+
+// toggles the start button -> pause button
+start_pause_timer_button.onclick = () => {
+    const isPaused = start_pause_timer_button.innerText != "play_arrow";
+
+    if (!isPaused) {
+        // removes the restart button until it is paused
+        restart_timer_button.style.visibility = "hidden";
+
+        // sets the button to pause
+        start_pause_timer_button.textContent = "pause";
+        start_pause_timer_button.style.backgroundColor =
+            "rgba(249, 231, 28, 0.926)";
+
+        // start timer button
+        startTimer();
+    } else {
+        // adds back the restart timer
+        restart_timer_button.style.visibility = "visible";
+
+        // sets the button to start
+        start_pause_timer_button.textContent = "play_arrow";
+        start_pause_timer_button.style.backgroundColor =
+            "rgba(75, 217, 35, 0.798)";
+
+        // pause timer button
+        pauseTimer();
+    }
+};
+
+restart_timer_button.onclick = () => {
+    console.log("Restarting timer.");
+
+    // pauses timer and restarts it at the given interval
+    pauseTimer();
+    totalSeconds = totalMinutes * 60;
+    timer_display.textContent = timeFormat();
+};
+
+// calc minutes
+const getMinutes = (totalSeconds) => {
+    return Math.floor(totalSeconds / 60);
+};
+
+// calc secs
+const getSeconds = (totalSeconds) => {
+    let sec = totalSeconds % 60;
+    return sec < 10 ? "0" + sec : sec;
+};
+
+// converts the time format
+const timeFormat = () => {
+    return getMinutes(totalSeconds) + ":" + getSeconds(totalSeconds);
+};
+
+// starts the timer
+const startTimer = () => {
+    timer_display.textContent = timeFormat();
+    timer = setInterval(tick, 1000);
+};
+
+// implements the live ticking on the clock
+const tick = () => {
+    if (totalSeconds > 0) {
+        totalSeconds--; // Decreases total seconds by one
+        timer_display.textContent = timeFormat(); // Updates display
+    } else {
+        // The timer has reached zero. Let the user start again.
+        timer_display.textContent = "DONE";
+    }
+};
+
+// pauses the timer by ending the interval
+const pauseTimer = () => {
+    // Stops calling `tick`
+    clearInterval(timer);
+};
+
+// sets the display value
+timer_display.textContent = timeFormat();
