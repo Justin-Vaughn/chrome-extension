@@ -15,10 +15,3 @@ Project includes:
 
 - Pomodoro Timer (Toggle)
   - User can start a focus timer. Timer can be paused and restarted.
-
-External Resources:
-- w3schools.com/
-- developer.mozilla.org/en-us/docs/web
-- https://stackoverflow.com/questions/48977986/editing-form-by-double-clicking-element
-- https://www.youtube.com/watch?v=PIiMSMz7KzM&t=77s
-- https://stackoverflow.com/questions/56225643/how-to-make-a-pause-play-button-for-timer-on-javascript
